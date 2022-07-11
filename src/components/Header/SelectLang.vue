@@ -25,7 +25,7 @@
 export default {
 	data() {
 		return {
-			selectedLang: 'kz',
+			selectedLang: 'ru',
 			isModalVisible: false,
 		};
 	},

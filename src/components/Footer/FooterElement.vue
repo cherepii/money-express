@@ -66,7 +66,7 @@
 						<contacts :className="'footer-contacts__item'" />
 						<span class="small-text">E-mail</span>
 						<div class="footer-contacts__item" :class="className">
-							<chat-icon />
+							<email-icon />
 							<a href="mailto: info@money-express.kz">info@money-express.kz</a>
 						</div>
 					</div>

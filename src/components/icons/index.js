@@ -9,6 +9,7 @@ import CalculatorArrow from '@/components/icons/CalculatorArrow';
 import BagIcon from '@/components/icons/BagIcon';
 import CalendarIcon from '@/components/icons/CalendarIcon';
 import SuccessIcon from '@/components/icons/SuccessIcon';
+import EmailIcon from '@/components/icons/EmailIcon';
 
 export default [
 	PhoneIcon,
@@ -22,4 +23,5 @@ export default [
 	BagIcon,
 	CalendarIcon,
 	SuccessIcon,
+	EmailIcon,
 ];
