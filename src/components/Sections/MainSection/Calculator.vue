@@ -8,7 +8,7 @@
 						<button @click="handleLeft">
 							<calculator-arrow />
 						</button>
-						<money-value :value="moneyValue + ' ₸'" />
+						<money-value :value="amount + ' ₸'" />
 						<button @click="handleRight" class="icon-right">
 							<calculator-arrow />
 						</button>
@@ -21,18 +21,18 @@
 							:step="1000"
 							:min="5000"
 							:max="150000"
-							:value="moneyValue"
+							:value="amount"
 							ref="moneyInput"
 						/>
 					</div>
 				</div>
 				<div class="days">
 					<div class="days__inputs">
-						<input @input="handleDaysInput" :value="daysValue" type="number" />
+						<input @input="handleDaysInput" :value="term" type="number" />
 						<my-input
 							:min="1"
 							:max="25"
-							:value="daysValue"
+							:value="term"
 							@range="handleDaysInput"
 							ref="daysInput"
 						/>
@@ -43,14 +43,22 @@
 					</div>
 				</div>
 				<my-button
-					:text="`Получить ${moneyValue} ₸`"
+					:text="`Получить ${amount} ₸`"
 					:customClass="'getButton'"
 					@click="getData"
 				/>
 			</div>
 			<div class="calculator__right">
-				<right-info />
-				<reward />
+				<right-info
+					:dueDate="computedData.date"
+					:principal="computedData.compPrincipal + ' ₸'"
+					:term="term + ' дней'"
+					:totalReturnAmount="computedData.compTotalReturnAmount + ' ₸'"
+				/>
+				<reward
+					:interestWithoutDiscount="computedData.compInterestWithoutDiscount"
+					v-model="promoCode"
+				/>
 			</div>
 		</div>
 	</div>
@@ -74,7 +82,7 @@ export default {
 			const value = e.target.value;
 			const elem = this.$refs['moneyInput'].$el;
 
-			this.moneyValue = value;
+			this.amount = value;
 			helper.editInputStyle(value, elem, 150000);
 		},
 
@@ -82,28 +90,28 @@ export default {
 			const value = e.target.value;
 			const elem = this.$refs['daysInput'].$el;
 
-			if (value < 1) this.daysValue = 1;
-			else if (value > 25) this.daysValue = 25;
-			else this.daysValue = value;
+			if (value < 1) this.term = 1;
+			else if (value > 25) this.term = 25;
+			else this.term = value;
 
 			helper.editInputStyle(value, elem, 25);
 		},
 
 		handleLeft() {
-			if (this.moneyValue > 5000) {
+			if (this.amount > 5000) {
 				const elem = this.$refs['moneyInput'].$el;
-				const minusValue = Number(this.moneyValue) - 25000;
-				this.moneyValue = minusValue < 5000 ? 5000 : minusValue;
-				helper.editInputStyle(this.moneyValue, elem, 150000);
+				const minusValue = Number(this.amount) - 25000;
+				this.amount = minusValue < 5000 ? 5000 : minusValue;
+				helper.editInputStyle(this.amount, elem, 150000);
 			} else return;
 		},
 
 		handleRight() {
-			if (this.moneyValue < 150000) {
+			if (this.amount < 150000) {
 				const elem = this.$refs['moneyInput'].$el;
-				const plusValue = Number(this.moneyValue) + 25000;
-				this.moneyValue = plusValue > 150000 ? 150000 : plusValue;
-				helper.editInputStyle(this.moneyValue, elem, 150000);
+				const plusValue = Number(this.amount) + 25000;
+				this.amount = plusValue > 150000 ? 150000 : plusValue;
+				helper.editInputStyle(this.amount, elem, 150000);
 			} else return;
 		},
 
@@ -115,12 +123,13 @@ export default {
 			try {
 				const res = await instance.get('simulate', {
 					params: {
-						amount: this.moneyValue,
-						term: this.daysValue,
+						amount: this.amount,
+						term: this.term,
 						group: this.group,
+						promoCode: this.promoCode ? this.promoCode : null,
 					},
 				});
-				console.log(res.data);
+				this.data = res.data;
 			} catch (error) {
 				console.log(error.message);
 			}
@@ -129,17 +138,50 @@ export default {
 
 	data() {
 		return {
-			moneyValue: 150000,
-			daysValue: 25,
+			amount: 150000,
+			term: 25,
 			group: 'BASIC',
+			promoCode: '',
+			data: {
+				principal: 150000,
+				dueDate: '2022-08-04',
+				totalReturnAmount: 187450,
+				interestWithoutDiscount: 37450,
+			},
 		};
 	},
 
 	computed: {
 		computedValues() {
-			const { moneyValue, daysValue, group } = this;
+			const { amount, term, group, promoCode } = this;
 
-			return { moneyValue, daysValue, group };
+			return { amount, term, group, promoCode };
+		},
+
+		computedData() {
+			const { principal, dueDate, totalReturnAmount, interestWithoutDiscount } =
+				this.data;
+
+			const compTotalReturnAmount =
+				Math.round(totalReturnAmount).toLocaleString();
+
+			const compPrincipal = principal.toLocaleString();
+
+			const compInterestWithoutDiscount =
+				Math.round(interestWithoutDiscount).toLocaleString() + ' ₸';
+
+			const year = dueDate.substr(0, 4);
+			const month = dueDate.substr(5, 2);
+			const days = dueDate.substr(8);
+
+			const date = days + '-' + month + '-' + year;
+
+			return {
+				compTotalReturnAmount,
+				compInterestWithoutDiscount,
+				compPrincipal,
+				date,
+			};
 		},
 	},
 
@@ -150,6 +192,10 @@ export default {
 			}, 500),
 			deep: true,
 		},
+	},
+
+	mounted() {
+		this.getData();
 	},
 };
 </script>

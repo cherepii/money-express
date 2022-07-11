@@ -1,10 +1,10 @@
 <template>
 	<div class="reward">
 		<div class="reward__heading">
-			<reward-heading :value="123321" />
+			<reward-heading :value="interestWithoutDiscount" />
 		</div>
 		<div class="reward__promo">
-			<input @input="handleChange" type="text" />
+			<input @input="handleChange" type="text" :value="modelValue" />
 			<my-button
 				:disabled="value === ''"
 				:customClass="'reward__promo-button'"
@@ -19,15 +19,20 @@ import RewardHeading from './RewardHeading.vue';
 export default {
 	components: { RewardHeading },
 
-	data() {
-		return {
-			value: '',
-		};
+	props: {
+		modelValue: {
+			type: String,
+			default: '',
+		},
+		interestWithoutDiscount: {
+			type: String,
+			required: true,
+		},
 	},
 
 	methods: {
 		handleChange(e) {
-			this.value = e.target.value;
+			this.$emit('update:modelValue', e.target.value);
 		},
 	},
 };

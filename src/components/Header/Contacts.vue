@@ -15,6 +15,7 @@
 export default {
 	props: {
 		className: String,
+		default: '',
 	},
 };
 </script>
