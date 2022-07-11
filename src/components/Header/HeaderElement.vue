@@ -1,9 +1,9 @@
 <template>
 	<div class="wrapper">
-		<logo />
-		<slogan />
-		<contacts />
-		<offers />
+		<header-logo />
+		<header-slogan />
+		<header-contacts />
+		<header-offers />
 
 		<a class="wrapper__button" href="#">
 			<personal-cabinet-icon />
@@ -15,13 +15,19 @@
 </template>
 
 <script>
-import Contacts from './Contacts.vue';
-import Logo from './Logo.vue';
-import Offers from './Offers.vue';
-import Slogan from './Slogan.vue';
+import HeaderContacts from './HeaderContacts.vue';
+import HeaderLogo from './HeaderLogo.vue';
+import HeaderOffers from './HeaderOffers.vue';
+import HeaderSlogan from './HeaderSlogan.vue';
 import SelectLang from './SelectLang';
 export default {
-	components: { Logo, Slogan, Contacts, Offers, SelectLang },
+	components: {
+		HeaderLogo,
+		HeaderSlogan,
+		HeaderContacts,
+		HeaderOffers,
+		SelectLang,
+	},
 };
 </script>
 

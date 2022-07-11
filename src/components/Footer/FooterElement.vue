@@ -4,7 +4,7 @@
 			<div class="footer">
 				<div class="footer__rows">
 					<div class="footer__col">
-						<logo />
+						<header-logo />
 					</div>
 					<div class="footer__col">
 						<span class="small-text">Мы в социальных сетях</span>
@@ -63,7 +63,7 @@
 					</div>
 					<div class="footer__col">
 						<span class="small-text">Телефон</span>
-						<contacts :className="'footer-contacts__item'" />
+						<header-contacts :className="'footer-contacts__item'" />
 						<span class="small-text">E-mail</span>
 						<div class="footer-contacts__item" :class="className">
 							<email-icon />
@@ -77,12 +77,12 @@
 </template>
 
 <script>
-import Contacts from '../Header/Contacts.vue';
-import Logo from '../Header/Logo.vue';
+import HeaderContacts from '../Header/HeaderContacts.vue';
+import HeaderLogo from '../Header/HeaderLogo.vue';
 export default {
 	components: {
-		Logo,
-		Contacts,
+		HeaderLogo,
+		HeaderContacts,
 	},
 };
 </script>

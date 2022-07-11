@@ -19,14 +19,14 @@
 		</container-block>
 	</div>
 	<container-block>
-		<calculator />
+		<my-calculator />
 	</container-block>
 </template>
 
 <script>
-import Calculator from './Calculator.vue';
+import MyCalculator from './MyCalculator.vue';
 export default {
-	components: { Calculator },
+	components: { MyCalculator },
 	data() {
 		const getDate = new Date();
 		getDate.setMinutes(getDate.getMinutes() + 15);

@@ -55,7 +55,7 @@
 					:term="term + ' дней'"
 					:totalReturnAmount="computedData.compTotalReturnAmount + ' ₸'"
 				/>
-				<reward
+				<my-reward
 					:interestWithoutDiscount="computedData.compInterestWithoutDiscount"
 					v-model="promoCode"
 				/>
@@ -71,11 +71,11 @@ import debounce from '@/helpers/debounce';
 
 import MoneyValue from '@/components/Sections/MainSection/MoneyValue';
 import RightInfo from './RightInfo.vue';
-import Reward from './Reward.vue';
+import MyReward from './MyReward.vue';
 import CalculatorNav from './CalculatorNav.vue';
 
 export default {
-	components: { MoneyValue, RightInfo, Reward, CalculatorNav },
+	components: { MoneyValue, RightInfo, MyReward, CalculatorNav },
 
 	methods: {
 		handleInput(e) {

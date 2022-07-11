@@ -1,6 +1,6 @@
 <template>
 	<header-element />
-	<navbar />
+	<my-navbar />
 	<main-section />
 	<about-section />
 	<cards-section />
@@ -10,7 +10,7 @@
 
 <script>
 import HeaderElement from '@/components/Header/HeaderElement';
-import Navbar from '@/components/Navbar/Navbar';
+import MyNavbar from '@/components/Navbar/MyNavbar';
 import MainSection from '@/components/Sections/MainSection/MainSection';
 import AboutSection from './components/Sections/AboutSection/AboutSection';
 import CardsSection from './components/Sections/CardsSection/CardsSection.vue';
@@ -20,7 +20,7 @@ import FooterElement from './components/Footer/FooterElement.vue';
 export default {
 	components: {
 		HeaderElement,
-		Navbar,
+		MyNavbar,
 		MainSection,
 		AboutSection,
 		CardsSection,
@@ -28,6 +28,10 @@ export default {
 		FooterElement,
 	},
 	name: 'App',
+
+	mounted() {
+		console.log(process.env.NODE_ENV);
+	},
 };
 </script>
 
