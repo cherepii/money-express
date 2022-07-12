@@ -14,8 +14,14 @@
 <script>
 export default {
 	props: {
-		className: String,
-		default: '',
+		className: {
+			type: String,
+			default: '',
+		},
+	},
+
+	mounted() {
+		console.log(process.env.VUE_APP_NODE_ENV);
 	},
 };
 </script>

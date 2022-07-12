@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: '/public/payment-schedule/',
+	baseURL: 'https://api.cashu.kz/public/payment-schedule/',
 	headers: {
 		'Content-Type': 'application/json',
 	},
