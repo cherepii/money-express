@@ -17,8 +17,7 @@ instance.interceptors.request.use((config) => {
 
 instance.interceptors.response.use(
 	(config) => {
-		config.headers['Access-Control-Allow-Origin'] =
-			'http://localhost:8080/money-express/';
+		config.headers['Access-Control-Allow-Origin'] = '*'; //not working
 
 		return config;
 	},

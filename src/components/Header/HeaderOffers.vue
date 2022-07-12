@@ -13,13 +13,14 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '../../animations/_animations';
+@import '../../scss/_animations';
 
 .clock {
 	display: flex;
 	align-items: center;
 	animation: 0.4s transform-top;
 	animation-delay: 0.5s;
+
 	h1 {
 		margin-left: 8px;
 		font-size: 12px;

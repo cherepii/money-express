@@ -60,6 +60,13 @@
 					v-model="promoCode"
 				/>
 			</div>
+			<div class="mobile-get-button-block">
+				<my-button
+					:customClass="'mobile-get-button'"
+					:text="`Получить ${amount} ₸`"
+					@click="getData"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -201,6 +208,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .calc {
 	margin-top: -90px;
 	padding-bottom: 50px;
@@ -211,10 +219,20 @@ export default {
 		border-radius: 0 12px 12px 12px;
 		background: #36427b;
 
+		@media screen and (max-width: $mobile) {
+			display: block;
+		}
+
 		&__left {
 			padding: 54px 46px;
 			width: 60%;
 			border-right: 1px dashed rgb(133, 132, 132);
+
+			@media screen and (max-width: $mobile) {
+				border: none;
+				width: 100%;
+				padding: 12px;
+			}
 
 			.management {
 				display: flex;
@@ -233,6 +251,10 @@ export default {
 						font-size: 30px;
 						font-weight: 600;
 						color: #fff;
+
+						@media screen and (max-width: $mobile) {
+							font-size: 24px;
+						}
 					}
 
 					.icon-right {
@@ -245,6 +267,10 @@ export default {
 						color: rgb(177, 177, 177);
 						font-size: 14px;
 						font-weight: 600;
+
+						@media screen and (max-width: $mobile) {
+							font-size: 12px;
+						}
 
 						&.text-left {
 							left: 80px;
@@ -264,6 +290,10 @@ export default {
 			.days {
 				width: 100%;
 				margin-bottom: 32px;
+
+				@media screen and (max-width: $mobile) {
+					margin: 0;
+				}
 
 				&__inputs {
 					> input:first-child {
@@ -311,11 +341,36 @@ export default {
 				min-width: 262px;
 				margin: 0 auto;
 				display: block;
+
+				@media screen and (max-width: $mobile) {
+					display: none;
+				}
 			}
 		}
 
 		&__right {
 			width: 40%;
+
+			@media screen and (max-width: $mobile) {
+				width: 100%;
+				display: flex;
+				flex-direction: column-reverse;
+				padding: 0 16px 16px;
+			}
+		}
+
+		.mobile-get-button-block {
+			display: none;
+
+			@media screen and (max-width: $mobile) {
+				padding-bottom: 24px;
+				display: block;
+
+				.mobile-get-button {
+					display: block;
+					margin: 0 auto;
+				}
+			}
 		}
 	}
 }

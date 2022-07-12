@@ -12,7 +12,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '../../animations/animations';
+@import '../../scss/_animations';
 .slogan {
 	animation: 0.4s transform-top;
 	animation-delay: 0.3s;

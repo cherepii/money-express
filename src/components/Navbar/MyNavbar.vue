@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../animations/_animations';
+@import '../../scss/_animations';
 
 .wrapper {
 	display: flex;

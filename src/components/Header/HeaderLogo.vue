@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '../../animations//animations';
+@import '../../scss/_animations';
 .logo {
 	width: 88px;
 	height: 32px;

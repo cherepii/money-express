@@ -35,6 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .calculator-nav {
 	display: flex;
 	align-items: center;
@@ -44,10 +45,15 @@ export default {
 		border-radius: 12px 12px 0 0;
 		background: #36427b;
 		color: #fff;
-		font-size: 18px;
+		font-size: 16px;
 		cursor: pointer;
 		position: relative;
 		transition: all 0.25s ease-in;
+
+		@media screen and (max-width: $mobile) {
+			padding: 14px 36px;
+			font-size: 14px;
+		}
 
 		&::after {
 			content: '';

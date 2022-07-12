@@ -1,11 +1,11 @@
 <template>
 	<div class="contacts">
 		<div class="contacts__item" :class="className">
-			<phone-icon />
+			<phone-icon :width="width" :fill="fill" />
 			<a href="tel: +77777777777">+7(777) 777-77-77</a>
 		</div>
 		<div class="contacts__item" :class="className">
-			<chat-icon />
+			<chat-icon :width="width" :fill="fill" />
 			<a href="tel: +78888888888">+7(777) 777-77-77</a>
 		</div>
 	</div>
@@ -18,12 +18,20 @@ export default {
 			type: String,
 			default: '',
 		},
+
+		width: {
+			type: Number,
+		},
+
+		fill: {
+			type: String,
+		},
 	},
 };
 </script>
 
 <style lang="scss">
-@import '../../animations/_animations';
+@import '../../scss/_animations';
 .contacts {
 	display: flex;
 	flex-direction: column;

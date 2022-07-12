@@ -88,21 +88,35 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/_variables';
+
 .footer-wrapper {
 	background-color: #f7f9fa;
 	.footer {
 		padding: 100px 0 30px;
 
+		@media screen and (max-width: $mobile) {
+			padding: 32px 16px;
+		}
+
 		&__rows {
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
+
+			@media screen and (max-width: $mobile) {
+				display: block;
+			}
 		}
 
 		&__col {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+
+			@media screen and (max-width: $mobile) {
+				margin-bottom: 18px;
+			}
 
 			.footer-contacts__item {
 				margin-bottom: 20px;

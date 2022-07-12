@@ -25,17 +25,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .card {
 	> h1 {
 		font-size: 22px;
 		font-weight: 600;
 		margin-bottom: 28px;
+
+		@media screen and (max-width: $mobile) {
+			margin-bottom: 18px;
+		}
 	}
 
 	&__list {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
+		@media screen and (max-width: $mobile) {
+			overflow-x: auto;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
 	}
 }
 </style>

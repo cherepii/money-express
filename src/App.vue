@@ -1,6 +1,6 @@
 <template>
 	<header-element />
-	<my-navbar />
+	<my-navbar class="mobile-hidden" />
 	<main-section />
 	<about-section />
 	<cards-section />
@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import './scss/_variables';
 
 body {
 	margin: 0;
@@ -44,6 +45,16 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	color: #37474f;
 	box-sizing: border-box;
+}
+
+#app {
+	overflow: hidden;
+}
+
+.mobile-hidden {
+	@media screen and (max-width: $mobile) {
+		display: none !important;
+	}
 }
 
 *,

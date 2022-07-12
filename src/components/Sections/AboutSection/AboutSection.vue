@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .about {
 	background-color: #f7f9fa;
 	border-radius: 24px;
@@ -38,10 +39,18 @@ export default {
 	margin: 40px auto;
 	padding: 60px 80px 30px;
 
+	@media screen and (max-width: $mobile) {
+		padding: 20px;
+	}
+
 	> h1 {
 		font-size: 28px;
 		font-weight: 600;
 		margin-bottom: 24px;
+
+		@media screen and (max-width: $mobile) {
+			text-align: center;
+		}
 	}
 
 	&__list {

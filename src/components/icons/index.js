@@ -10,6 +10,7 @@ import BagIcon from '@/components/icons/BagIcon';
 import CalendarIcon from '@/components/icons/CalendarIcon';
 import SuccessIcon from '@/components/icons/SuccessIcon';
 import EmailIcon from '@/components/icons/EmailIcon';
+import CloseIcon from '@/components/icons/CloseIcon';
 
 export default [
 	PhoneIcon,
@@ -24,4 +25,5 @@ export default [
 	CalendarIcon,
 	SuccessIcon,
 	EmailIcon,
+	CloseIcon,
 ];

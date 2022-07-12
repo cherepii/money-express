@@ -25,7 +25,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .wrapper {
 	padding: 48px 0;
+
+	@media screen and (max-width: $mobile) {
+		padding: 24px 0;
+	}
 }
 </style>

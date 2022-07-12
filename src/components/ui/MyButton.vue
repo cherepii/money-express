@@ -1,5 +1,5 @@
 <template>
-	<button :disabled="isDisabled" :class="[defaultClass, customClasses]">
+	<button :disabled="isDisabled" :class="[defaultClass, customClass]">
 		{{ text }}
 	</button>
 </template>
@@ -37,7 +37,7 @@ export default {
 	font-size: 16px;
 	background: linear-gradient(30deg, #00c4ff, #ff0266);
 	border-radius: 10px;
-	transition: opacity 0.2s ease-in;
+	transition: all 0.2s ease-in;
 
 	&:disabled {
 		opacity: 0.5;

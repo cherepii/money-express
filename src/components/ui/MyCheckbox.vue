@@ -22,9 +22,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../scss/_variables';
+
 .checkbox {
 	display: flex;
 	align-items: center;
+
+	@media screen and (max-width: $mobile) {
+		align-items: initial;
+	}
 
 	> input {
 		margin-right: 10px;

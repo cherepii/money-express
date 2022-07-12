@@ -63,8 +63,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .wrapper {
 	margin: 140px 0 50px;
+
+	@media screen and (max-width: $mobile) {
+		margin: 60px 0 60px;
+	}
 
 	.form {
 		width: 100%;
@@ -73,6 +78,10 @@ export default {
 		border-radius: 20px;
 		position: relative;
 		overflow: hidden;
+
+		@media screen and (max-width: $mobile) {
+			padding: 32px 16px;
+		}
 
 		&::before {
 			content: '';
@@ -101,10 +110,16 @@ export default {
 
 		> form {
 			max-width: 576px;
+			width: 100%;
 			margin: 0 auto;
 			text-align: center;
 
+			@media screen and (max-width: $mobile) {
+				max-width: 100%;
+			}
+
 			.form__text {
+				position: relative;
 				> h3 {
 					font-size: 22px;
 					font-weight: 600;
@@ -119,6 +134,12 @@ export default {
 
 			.form__body {
 				padding: 0 70px;
+				position: relative;
+				z-index: 5;
+
+				@media screen and (max-width: $mobile) {
+					padding: 0;
+				}
 
 				&-checkbox {
 					font-size: 14px;
@@ -136,6 +157,11 @@ export default {
 		&__button {
 			width: 100%;
 			margin-top: 40px;
+
+			&:disabled {
+				opacity: 1;
+				background: rgb(185, 181, 181);
+			}
 		}
 	}
 }

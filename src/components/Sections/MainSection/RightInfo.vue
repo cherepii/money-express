@@ -47,20 +47,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .info {
 	padding: 24px;
 	display: flex;
 	width: 100%;
+
+	@media screen and (max-width: $mobile) {
+		display: block;
+		padding: 0;
+	}
 
 	&__icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-right: 16px;
+
+		@media screen and (max-width: $mobile) {
+			display: none;
+		}
 	}
 
 	&:nth-child(2) {
 		border-bottom: 1px dashed rgb(133, 132, 132);
+
+		@media screen and (max-width: $mobile) {
+			border: none;
+		}
 	}
 }
 </style>

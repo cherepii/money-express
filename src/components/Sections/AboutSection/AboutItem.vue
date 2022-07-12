@@ -27,6 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .list__item {
 	display: flex;
 	flex-direction: column;
@@ -36,6 +37,14 @@ export default {
 	text-align: center;
 	padding: 24px 24px 0;
 
+	@media screen and (max-width: $mobile) {
+		width: 50%;
+	}
+
+	@media screen and (max-width: $mobile) {
+		width: 100%;
+		margin-bottom: 14px;
+	}
 	> img {
 		height: 185px;
 	}

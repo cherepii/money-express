@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../scss/_variables';
 .list__item {
 	padding: 10px;
 	border: 1px solid #dee1e5;
@@ -38,6 +39,12 @@ export default {
 	width: 100%;
 	margin-bottom: 180px;
 	cursor: pointer;
+
+	@media screen and (max-width: $mobile) {
+		min-width: 277px;
+		margin-right: 24px;
+		margin-bottom: 80px;
+	}
 
 	> img {
 		width: 100%;
@@ -69,6 +76,11 @@ export default {
 	box-shadow: 0 4px 20px rgba(92, 102, 113, 10%);
 	min-height: 270px;
 	cursor: pointer;
+
+	@media screen and (max-width: $mobile) {
+		min-width: 320px;
+		margin-right: 24px;
+	}
 
 	.person {
 		display: flex;
