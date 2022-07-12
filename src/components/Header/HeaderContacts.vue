@@ -19,10 +19,6 @@ export default {
 			default: '',
 		},
 	},
-
-	mounted() {
-		console.log(process.env.VUE_APP_NODE_ENV);
-	},
 };
 </script>
 

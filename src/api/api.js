@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'https://api.cashu.kz/public/payment-schedule/',
+	baseURL: 'public/payment-schedule/',
 	headers: {
 		'Content-Type': 'application/json',
 	},
@@ -14,5 +14,17 @@ instance.interceptors.request.use((config) => {
 		return config;
 	}
 });
+
+instance.interceptors.response.use(
+	(config) => {
+		config.headers['Access-Control-Allow-Origin'] =
+			'http://localhost:8080/money-express/';
+
+		return config;
+	},
+	(error) => {
+		throw error;
+	}
+);
 
 export default instance;
