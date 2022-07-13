@@ -97,7 +97,7 @@ export default {
 			const value = e.target.value;
 			const elem = this.$refs['daysInput'].$el;
 
-			if (value < 1) this.term = 1;
+			if (value < 5) this.term = 5;
 			else if (value > 25) this.term = 25;
 			else this.term = value;
 
